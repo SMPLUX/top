@@ -16,14 +16,17 @@ test('login with lockedout user', async ({ page, loginPage }) => {
     .password('secret_sauce')
     .build();
   await loginPage.login(userData);
-  await expect(page.locator('[data-test="error"]')).toBeVisible();
+  await expect(loginPage.error).toBeVisible();
 });
 
-test.fail('login with problem user', async ({ page, loginPage }) => {
+test.fail('login with problem user', async ({ page, loginPage, inventoryPage }) => {
   const userData = UserDataBuilder.withDefault()
     .username('problem_user')
     .password('secret_sauce')
     .build();
   await loginPage.login(userData);
-  await expect(page.locator('[data-test="inventory-item-sauce-labs-backpack-img"]')).toHaveValues({ src: '/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg' });
+  await expect(inventoryPage.backpackImg).toHaveAttribute(
+    'src',
+    '/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg'
+  );
 });
