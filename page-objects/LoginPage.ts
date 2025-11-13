@@ -18,7 +18,6 @@ export class LoginPage {
     this.loginButton = page.locator('[data-test="login-button"]'); 
     this.error = page.locator('[data-test="error"]');
     this.backpackImg = page.locator('[data-test="inventory-item-sauce-labs-backpack-img"]');
-    
   }
 
   async login(userData: UserData) {

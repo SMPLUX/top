@@ -6,6 +6,9 @@ export type UserData = {
     description: string;
     username: string;
     password: string;
+    firstName: string;
+    lastName: string;
+    postalCode: string;
 }
 
 export abstract class UserDataBuilder {
@@ -15,6 +18,9 @@ export abstract class UserDataBuilder {
             .password('secret_sauce')
             .name(faker.animal.crocodilia())
             .description(faker.lorem.paragraph())
+            .firstName(faker.person.firstName())
+            .lastName(faker.person.lastName())
+            .postalCode(faker.location.zipCode());
             
     }
 }

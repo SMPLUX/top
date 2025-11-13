@@ -13,7 +13,6 @@ test('login with standard user', async ({ page, loginPage }) => {
 test('login with lockedout user', async ({ page, loginPage }) => {
   const userData = UserDataBuilder.withDefault()
     .username('locked_out_user')
-    .password('secret_sauce')
     .build();
   await loginPage.login(userData);
   await expect(loginPage.error).toBeVisible();
@@ -22,7 +21,6 @@ test('login with lockedout user', async ({ page, loginPage }) => {
 test.fail('login with problem user', async ({ page, loginPage, inventoryPage }) => {
   const userData = UserDataBuilder.withDefault()
     .username('problem_user')
-    .password('secret_sauce')
     .build();
   await loginPage.login(userData);
   await expect(inventoryPage.backpackImg).toHaveAttribute(

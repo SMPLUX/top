@@ -13,7 +13,6 @@ test('standard user add remove item', async ({ page, loginPage, inventoryPage })
 test.fail('error user add remove item', async ({ page, loginPage, inventoryPage }) => {
   const userData = UserDataBuilder.withDefault()
     .username('problem_user')
-    .password('secret_sauce')
     .build();
   await loginPage.login(userData);
   await inventoryPage.addtoCart();
