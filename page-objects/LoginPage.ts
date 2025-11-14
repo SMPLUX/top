@@ -9,7 +9,7 @@ export class LoginPage {
   username: any;
   password: any;
   error: Locator;
-  backpackImg: Locator;;
+  backpackImg: Locator;
 
   constructor(page: Page) {
     this.page = page;
