@@ -15,7 +15,7 @@ test('standard user checkout @pipeline', async ({ page, loginPage, inventoryPage
 
 });
 
-test.fail('error user checkout', async ({ page, loginPage, inventoryPage, cartPage, checkoutPage }) => {
+test.fail('error user checkout', async ({ page, loginPage, inventoryPage, cartPage, checkoutPage, checkoutPageTwo }) => {
   const userData = UserDataBuilder.withDefault().username('problem_user').build();
   await loginPage.login(userData);
   await inventoryPage.addtoCart();
@@ -23,4 +23,6 @@ test.fail('error user checkout', async ({ page, loginPage, inventoryPage, cartPa
   await cartPage.checkout();
   await checkoutPage.fillDetails(userData);
   await checkoutPage.continue();
+  await expect(checkoutPageTwo.total).toContainText('Total: $32.39');
+
 });
