@@ -6,10 +6,12 @@ export class CheckoutPageTwo {
 
   finishButton: Locator;
   total: Locator;
+  itemPrice: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.finishButton = page.locator('[data-test="finish"]');
+    this.itemPrice = page.locator('[data-test="inventory-item-price"]');
     this.total = page.locator('.summary_total_label');
   }
 
