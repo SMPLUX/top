@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,5 +14,10 @@
   "dependencies": {
     "@faker-js/faker": "^10.1.0",
     "builder-pattern": "^2.2.0"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "ui": "playwright test --ui",
+    "pipeline": "npx playwright test --grep \"@pipeline\" --workers=1 --project=chromium --reporter=line,junit"
   }
 }
